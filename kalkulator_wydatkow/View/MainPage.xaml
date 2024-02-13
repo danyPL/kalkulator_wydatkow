@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kalkulator_wydatkow.View.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+        <VerticalStackLayout HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="30" Margin="8,32,8,8">
+                <ImageButton Source="gear.svg" Aspect="AspectFit" WidthRequest="24" HeightRequest="24"/>
+                <Label Text="Kalkulator wydatków" FontSize="Title" HorizontalTextAlignment="Center" />
+                <ImageButton Source="wallet.svg" Aspect="AspectFit" WidthRequest="24" HeightRequest="24" Clicked="GoToAll"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout Margin="16">
+            <Label Text="Wydatek" />
+            <Entry Placeholder="Na co wydano?" x:Name="expenseName" />
+            <Label Text="Wysokość wydatku" />
+            <Entry Keyboard="Numeric" Placeholder="PLN (zł)" x:Name="expensePrice" />
+            <Label Text="Data wydatku:" />
+            <DatePicker x:Name="expenseDate" />
+            <Label Text="Kategoria wydatku" />
+            <Picker Title="Kategoria" x:Name="expenseCategory">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Rozrywka</x:String>
+                        <x:String>Rachunek</x:String>
+                        <x:String>Zakupy</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Dzisiejsze podsumowanie" x:Name="todaysExpenses" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+         <Button Text="Dodaj wydatek" Clicked="AddExpenseBtn" Margin="16,16,16,4" />
+        <Button Text="Oblicz dodane wydatki" Margin="16,4,16,16"/>
+        </VerticalStackLayout>
+        
+    </FlexLayout>
+
+</ContentPage>
